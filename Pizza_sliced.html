@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza - Sliced</title>
+    <style>
+        body {
+        margin: 0;
+    
+        }
+        #frame {
+            height: 864px;
+            width: 100%;
+            position: relative;
+    
+        }
+
+        .outer_pan_border {
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-50% , -50% );
+        }
+
+        .inner_pan_border {
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-50% , -50% );
+            
+        }
+
+        #full-pizza {
+            z-index: 1;
+        }
+
+        .pizza_base {
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-50% , -50% );
+            background-image: conic-gradient(#eaac4f 00deg 90deg, transparent 90deg 150deg, #eaac4f 150deg 360deg);
+        }
+
+        .pizza_sauce {
+            width: 430px;
+            height: 430px;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-50% , -50% );
+            background-image: conic-gradient(#ed6b00 00deg 90deg, transparent 90deg 150deg, #ed6b00 150deg 360deg);
+        }
+
+        #sliced-pizza {
+            z-index: -1;
+        }
+
+        .pizza_base_2 {
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-40% , -45% );
+            background-image: conic-gradient(transparent 00deg 90deg, #eaac4f 90deg 150deg,transparent 150deg 360deg);
+        }
+
+        .pizza_sauce_2 {
+            width: 430px;
+            height: 430px;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-39% , -44% );
+            background-image: conic-gradient(transparent 0deg 90deg, #ed6b00 90deg 150deg, transparent 150deg 360deg);
+        }
+
+        .paneer {
+            width: 35px;
+            height: 35px;
+            border-radius: 2px;
+            background-color: #FDFFF6;
+            /* box-shadow: 0px 0px 5px 1px rgb(237, 237, 237); */
+        }
+
+        #p1 {
+            position: absolute;
+            top: 30% ;
+            left: 52% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(45deg);
+        }
+
+        #p2 {
+            position: absolute;
+            top: 50% ;
+            left: 38% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(90deg);
+        }
+
+        #p3 {
+            position: absolute;
+            top: 65% ;
+            left: 50% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(135deg);
+        }
+
+        #p4 {
+            position: absolute;
+            top: 62% ;
+            left: 59% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(0deg);
+        }
+
+        #p5 {
+            position: absolute;
+            top: 65% ;
+            left: 42% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(45deg);
+        }
+
+        #p6 {
+            position: absolute;
+            top: 40% ;
+            left: 58% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(90deg);
+        }
+
+        #p7 {
+            position: absolute;
+            top: 50% ;
+            left: 46% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(-45deg);
+        }
+
+        #p8 {
+            position: absolute;
+            top: 36% ;
+            left: 42% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(45deg);
+        }
+
+        .onion {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-image: radial-gradient(transparent 26px, pink 10px);
+            box-shadow: 0px 0px 0px 2px rgb(215, 87, 109);
+        }
+        
+        #o1 {
+            position: absolute;
+            top: 35% ;
+            left: 48% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #o2 {
+            position: absolute;
+            top: 42% ;
+            left: 55% ;
+            transform: translate(-50%, -50%);
+        }
+        #o3 {
+            position: absolute;
+            top: 60% ;
+            left: 50% ;
+            transform: translate(-50%, -50%);
+        }
+        #o4 {
+            position: absolute;
+            top: 58% ;
+            left: 42% ;
+            transform: translate(-50%, -50%);
+        }
+        #o5 {
+            position: absolute;
+            top: 58% ;
+            left: 63% ;
+            transform: translate(-50%, -50%);
+        }
+        #o6 {
+            position: absolute;
+            top: 44% ;
+            left: 40% ;
+            transform: translate(-50%, -50%);
+        }
+
+        .olives {
+            width: 40px;
+            height: 35px;
+            border-radius: 50%;
+            background-image: radial-gradient(transparent 8px, rgb(10, 25, 1) 8px);
+            box-shadow: 0px 0px 0px 1px rgb(0, 0, 0);
+        }
+
+        #oli1 {
+            position: absolute;
+            top: 57% ;
+            left: 57% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #oli2 {
+            position: absolute;
+            top: 47% ;
+            left: 61.5% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #oli3 {
+            position: absolute;
+            top: 35% ;
+            left: 57% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #oli4 {
+            position: absolute;
+            top: 45% ;
+            left: 48% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #oli5 {
+            position: absolute;
+            top: 38% ;
+            left: 40% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #oli6 {
+            position: absolute;
+            top: 60% ;
+            left: 46% ;
+            transform: translate(-50%, -50%);
+        }
+
+        #oli7 {
+            position: absolute;
+            top: 71% ;
+            left: 49% ;
+            transform: translate(-50%, -50%);
+        }
+
+        .bell_peppers {
+            width: 15px;
+            height: 70px;
+            background-color: rgb(0, 99, 0);
+            box-shadow: -3px 0px 0px rgb(0, 82, 0);
+            border-radius: 2px;
+        }
+
+        #b1 {
+            position: absolute;
+            top: 66% ;
+            left: 46% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(-10deg);
+        }
+
+        #b2 {
+            position: absolute;
+            top: 65% ;
+            left: 62% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(25deg);
+        }
+
+        #b3 {
+            position: absolute;
+            top: 40% ;
+            left: 51% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(-25deg);
+        }
+
+        #b4 {
+            position: absolute;
+            top: 45% ;
+            left: 43.5% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(80deg);
+        }
+
+        #b5 {
+            position: absolute;
+            top: 28% ;
+            left: 45% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(60deg);
+        } 
+
+        #b6 {
+            position: absolute;
+            top: 30% ;
+            left: 58% ;
+            transform: translate(-50%, -50%);
+            transform: rotate(150deg);
+        } 
+    </style>
+</head>
+<body>
+
+    <!-- FRAME -->
+    <!-- View the pizza in full screen mode only -->
+    <div id="frame">
+
+        <!-- PAN -->
+        <div class="outer_pan_border"></div>
+        <div class="inner_pan_border"></div>
+
+        <!-- FULL PIZZA -->
+        <div id="full-pizza">
+            <div class="pizza_base"></div>
+            <div class="pizza_sauce"></div>
+        </div>
+
+        <!-- PIZZA SLICE -->
+        <div id="sliced-pizza">
+            <div class="pizza_base_2"></div>
+            <div class="pizza_sauce_2"></div>
+        </div>
+
+        <!-- TOPPINGS -->
+        <!-- 1. PANEER -->
+        <div class="paneer" id="p1"></div>
+        <div class="paneer" id="p2"></div>
+        <div class="paneer" id="p3"></div>
+        <div class="paneer" id="p4"></div>
+        <div class="paneer" id="p5"></div>
+        <div class="paneer" id="p6"></div>
+        <div class="paneer" id="p7"></div>
+        <div class="paneer" id="p8"></div>
+
+        <!-- 2. ONION -->
+        <div class="onion" id="o1"></div>
+        <div class="onion" id="o2"></div>
+        <div class="onion" id="o3"></div>
+        <div class="onion" id="o4"></div>
+        <div class="onion" id="o5"></div>
+        <div class="onion" id="o6"></div>
+
+        <!-- 3. OLIVES -->
+        <div class="olives" id="oli1"></div>
+        <div class="olives" id="oli2"></div>
+        <div class="olives" id="oli3"></div>
+        <div class="olives" id="oli4"></div>
+        <div class="olives" id="oli5"></div>
+        <div class="olives" id="oli6"></div>
+        <div class="olives" id="oli7"></div>
+
+        <!-- 4. BELL PEPPERS -->
+        <div class="bell_peppers" id="b1"></div>
+        <div class="bell_peppers" id="b2"></div>
+        <div class="bell_peppers" id="b3"></div>
+        <div class="bell_peppers" id="b4"></div>
+        <div class="bell_peppers" id="b5"></div>
+        <div class="bell_peppers" id="b6"></div>
+
+        <!-- 5. CORN -->
+        <div class="corn" id="c1"></div>
+        <div class="corn" id="c2"></div>
+        <div class="corn" id="c3"></div>
+        <div class="corn" id="c4"></div>
+        <div class="corn" id="c5"></div>
+        <div class="corn" id="c6"></div>
+        <div class="corn" id="c7"></div>
+        <div class="corn" id="c8"></div>
+        <div class="corn" id="c9"></div>
+        <div class="corn" id="c10"></div>
+        <div class="corn" id="c11"></div>
+        <div class="corn" id="c12"></div>
+        <div class="corn" id="c13"></div>
+
+    </div>
+</body>
+</html>
